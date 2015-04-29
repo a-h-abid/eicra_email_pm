@@ -1,0 +1,22 @@
+{
+  "name": "Eicra-Email-Pm",
+  "version": "0.0.1",
+  "authors": [
+    "Ahmedul Haque Abid <a_h_abid@hotmail.com>"
+  ],
+  "description": "Stupid app to send templated mail to our Eicra Project Manager",
+  "license": "MIT",
+  "homepage": "http://abdmaster.com/",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.4",
+    "jquery": "~2.1.3"
+  }
+}

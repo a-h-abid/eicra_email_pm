@@ -1,0 +1,32 @@
+{
+    "name": "abdmaster/eicra_email_pm",
+    "type": "mini-app",
+    "description": "A stupid mini app to send quick templated email to our Project Manager",
+    "homepage": "http://github.com/codeguy/Slim",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Josh Lockhart",
+            "email": "info@joshlockhart.com",
+            "homepage": "http://www.joshlockhart.com/"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.1",
+        "slim/slim" : "~2.6.0",
+        "phpmailer/phpmailer" : "~5.2.9",
+        "cpliakas/jira": "~1.0"
+    },
+    "suggest": {
+        "ext-mcrypt": "Required for HTTP cookie encryption"
+    },
+    "autoload": {
+        "psr-0": {
+            "ABD" : "app",
+            "Eicra" : "app"
+        },
+        "files" : [
+            "app/ABD/Helpers/helpers.php"
+        ]
+    }
+}

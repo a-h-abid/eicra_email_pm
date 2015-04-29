@@ -1,0 +1,7 @@
+.idea
+.env.php
+/vendor
+/node_modules
+/bower_components
+/tests
+/cache
