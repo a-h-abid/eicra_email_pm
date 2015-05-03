@@ -18,8 +18,8 @@
                 <div class="list-group">
                     <label>Send From</label>
                     <div class="clearfix">
-                        <input type="text" required="required" name="send_from_name" placeholder="Name" value="<?php echo APP_EICRA_SENDFROM_EMAIL ?>" class="form-control" />
-                        <input type="text" required="required" name="send_from_email" placeholder="Email" value="<?php echo APP_EICRA_SENDFROM_NAME ?>" class="form-control" />
+                        <input type="text" required="required" name="send_from_name" placeholder="Name" value="<?php echo APP_EICRA_SENDFROM_NAME ?>" class="form-control" />
+                        <input type="text" required="required" name="send_from_email" placeholder="Email" value="<?php echo APP_EICRA_SENDFROM_EMAIL ?>" class="form-control" />
                     </div>
                 </div>
 
@@ -41,12 +41,12 @@
             </div>
             
             <div class="col-md-8">
-                <div class="list-group">
+                <div class="col-md-6">
                     <label>Subject</label>
                     <input type="text" class="form-control" required="required" name="subject" value="My Report for <?php echo date('Y-m-d') ?>" />
                 </div>
 
-                <div class="list-group">
+                <div class="col-md-6">
                     <label>Header Message</label>
                     <textarea name="header_message" required="required" class="form-control"><?php
                         echo "Greetings,\n"
@@ -55,12 +55,12 @@
                     ?></textarea>
                 </div>
                 
-                <div class="list-group col-md-12">
+                <div class="col-md-12">
                     <label>Message Lines</label>
                     <ol id="message-lines" class="list-group">
-                        <li class=""><input type="text" required="required" class="form-control" name="message_lines[]" value="" /></li>
-                        <li class=""><input type="text" required="required" class="form-control" name="message_lines[]" value="" /></li>
-                        <li class=""><input type="text" required="required" class="form-control" name="message_lines[]" value="" /></li>
+                        <li class="list-group-item"><input type="text" required="required" class="form-control" name="message_lines[]" value="" /></li>
+                        <li class="list-group-item"><input type="text" required="required" class="form-control" name="message_lines[]" value="" /></li>
+                        <li class="list-group-item"><input type="text" required="required" class="form-control" name="message_lines[]" value="" /></li>
                     </ol>
                     
                     <div class="btn-group">
@@ -70,7 +70,7 @@
 
                 </div>
 
-                <div class="list-group">
+                <div class="form-group">
                     <label>Signature</label>
                     <textarea name="signature" required="required" class="form-control"><?php
                         echo 'Thank You,'."\n"

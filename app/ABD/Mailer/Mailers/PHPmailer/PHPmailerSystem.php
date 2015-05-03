@@ -1,43 +1,15 @@
-<?php namespace ABD\Mailer\Mailers;
+<?php namespace ABD\Mailer\Mailers\PHPmailer;
 
 use ABD\Mailer\MailerInterface;
-use PHPmailer;
+use PHPMailer;
 
 class PHPmailerSystem implements MailerInterface {
 
     protected $mailer;
 
-    protected $configMapper = [
-        'driver'            => 'Mailer',
-        'encription'        => 'tls',
-        'authentication'    => true,
-    ];
-
-    public function __construct(PHPmailer $mailer)
+    public function __construct(PHPMailer $mailer)
     {
         $this->mailer = $mailer;
-    }
-
-    // =======================================================================================
-    
-    protected function setupConfiguration($config)
-    {
-        $mailerReflector = new ReflectionClass(get_class($this->mailer));
-
-        $properties = $mailerReflector->getProperties(ReflectionProperty::IS_PUBLIC);
-        $methods = $mailerReflector->getMethods(ReflectionMethod::IS_PUBLIC);
-
-        foreach ($config as $key => $value)
-        {
-            if (in_array($key, $methods))
-            {
-                $this->callMailerMethod($key, $value);
-            }
-            elseif (in_array($key, $properties))
-            {
-                $this->mailer->$key = $value;
-            }
-        }
     }
 
     // =======================================================================================
@@ -46,7 +18,6 @@ class PHPmailerSystem implements MailerInterface {
     {
         if (strtolower($driver) == 'smtp')
             $driver = 'SMTP';
-
         $method = 'is'.ucfirst($driver);
 
         if (! method_exists($this->mailer, $method))
@@ -155,18 +126,10 @@ class PHPmailerSystem implements MailerInterface {
     }
 
     // ==========================================================================
-    
-    public function __call($method, $arguments)
-    {
-        $this->callMailerMethod($method, $arguments);
-    }
 
-    private function callMailerMethod($method, $params)
+    public function error()
     {
-        if (!is_array($params))
-            $params = [$params];
-
-        return call_user_func_array([$this->mailer, $method], $params);
+        return $this->mailer->ErrorInfo;
     }
 
 }

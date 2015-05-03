@@ -17,13 +17,14 @@ $app->get('/mail', function() use ($app) {
 // POST Submit Email
 $app->post('/send', function() use ($app) {
 
-    $mailer = new Eicra\ProjectManager\Mailer\TaskMailer(new PHPMailer);
+    $mail_system = $app->container->get('abd.mailer');
+    $mailer = new Eicra\ProjectManager\Mailer\TaskMailer($mail_system);
 
     try
     {
-        $mailer->setTransport($_POST['mailing_system'])
+        $mailer->setTransporter($_POST['mailing_system'])
                 ->setLogin($_POST['user_email'], $_POST['user_password'])
-                ->setFrom($_POST['send_from_email'], $_POST['send_from_name'])
+                ->setFromReply($_POST['send_from_email'], $_POST['send_from_name'])
                 ->setTo($_POST['send_to_email'], $_POST['send_to_name'])
                 ->setSubject($_POST['subject'])
                 ->setTemplateBody($_POST)
@@ -33,7 +34,7 @@ $app->post('/send', function() use ($app) {
         // @todo Check for attachments and CC/BCC
 
         $status_msg = ( ! $mailer->send() )
-                        ? "Mailer Error: " . $mail->ErrorInfo
+                        ? "Mailer Error: " . $mailer->getError()
                         : "Message sent!";
     }
     catch(Exception $e)

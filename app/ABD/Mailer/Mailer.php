@@ -29,7 +29,7 @@ class Mailer {
     public function getConfig()
     {
         if ($this->config == null)
-            $this->config = require_once('config.php');
+            $this->config = include __DIR__.'/config.php';
 
         return $this->config;
     }
@@ -131,11 +131,16 @@ class Mailer {
         return $this;
     }
 
+    public function getError()
+    {
+        return $this->mailer->error();
+    }
+
     // =================================================================================
 
-    public function setFrom($email, $name)
+    public function setFromReply($email, $name)
     {
-        $this->mailer->from($email, $name);
+        $this->mailer->fromReply($email, $name);
         
         return $this;
     }

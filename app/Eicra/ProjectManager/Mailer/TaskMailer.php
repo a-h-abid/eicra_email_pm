@@ -3,7 +3,7 @@
 use ABD\Mailer\Mailer;
 use ABD\Mailer\TemplateMail;
 
-class TaskMailer extend Mailer {
+class TaskMailer extends Mailer {
 
     use TemplateMail;
 
@@ -11,7 +11,7 @@ class TaskMailer extend Mailer {
 
     public function getTemplate()
     {
-        return file_get_contents($this->template_file);
+        return file_get_contents( __DIR__. '/' . $this->template_file);
     }
 
     public function getTemplateData($data)
