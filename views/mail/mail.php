@@ -73,7 +73,7 @@
 
                 </div>
 
-                <div class="form-group">
+                <div class="col-md-12 form-group">
                     <label>Signature</label>
                     <textarea name="signature" required="required" class="form-control textarea-compact" row="2"><?php
                         echo 'Thank You,'."\n"
