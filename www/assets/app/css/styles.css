@@ -1,5 +1,5 @@
 body {overflow-y: scroll;}
-#main-container {padding: 60px 0;}
+#main-container {padding: 40px 0;}
 
 ol li.list-group-item {display: list-item;list-style-position: inside; position: relative;}
 ol li.list-group-item input {position: absolute; right: 3px; top: 2px; width: 90%;}

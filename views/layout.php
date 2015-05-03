@@ -66,6 +66,7 @@
         <script type="text/javascript" src="assets/libs/jquery/jquery.min.js"></script>
         <script type="text/javascript" src="assets/libs/bootstrap/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="assets/app/js/sendmail.js"></script>
+        <script type="text/javascript" src="assets/app/js/jira-fetch.js"></script>
 
     </body>
 </html>
