@@ -47,6 +47,36 @@ $app->post('/send', function() use ($app) {
 
 })->name('send-email');
 
+// Jira Login & Fetch Issues
+$app->post('/jira/fetch-issues', function() use ($app){
+
+    try
+    {
+        $jira = $app->container->get('eicra.jira');
+        $jira->login($_POST['jira_username'], $_POST['jira_password']);
+
+        $jira_repo = new Eicra\Jira\IssuesRepository($jira);
+        $issues = $jira_repo->getMyOpenIssues();
+
+        $json = [
+            'status'            => true,
+            'issues'            => $issues,
+            'jira_status_codes' => Eicra\Jira\StatusCode::getAllStatus(),
+        ];
+    }
+    catch(Exception $e)
+    {
+        $json = [
+            'status'    => false,
+            'errors'    => $e->getMessage(),
+        ];
+    }
+
+    echo json_encode($json);
+
+})->name('jira-fetch-issues');
+
+
 // Jira Test
 $app->get('/jira-test', function() use ($app){
     

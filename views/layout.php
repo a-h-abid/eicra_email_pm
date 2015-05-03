@@ -30,7 +30,6 @@
                     <ul class="nav navbar-nav">
                         <li><a href="<?php echo $app->urlFor('home') ?>">Home</a></li>
                         <li><a href="<?php echo $app->urlFor('mail') ?>">Mail</a></li>
-                        <li><a href="<?php echo $app->urlFor('jira') ?>">Jira</a></li>
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">

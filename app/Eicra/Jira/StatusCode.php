@@ -16,4 +16,9 @@ class StatusCode {
         return static::$codes[$code];
     }
 
+    public static function getAllStatus()
+    {
+        return static::$codes;
+    }
+
 }

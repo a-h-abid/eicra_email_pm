@@ -48,19 +48,22 @@
 
                 <div class="col-md-6">
                     <label>Header Message</label>
-                    <textarea name="header_message" required="required" class="form-control"><?php
+                    <textarea name="header_message" required="required" class="form-control textarea-compact"><?php
                         echo "Greetings,\n"
-                                . "\n"
-                                . "Todays tasks report: ";
+                            . "\n"
+                            . "Todays tasks report: ";
                     ?></textarea>
                 </div>
                 
                 <div class="col-md-12">
                     <label>Message Lines</label>
                     <ol id="message-lines" class="list-group">
-                        <li class="list-group-item"><input type="text" required="required" class="form-control" name="message_lines[]" value="" /></li>
-                        <li class="list-group-item"><input type="text" required="required" class="form-control" name="message_lines[]" value="" /></li>
-                        <li class="list-group-item"><input type="text" required="required" class="form-control" name="message_lines[]" value="" /></li>
+                        <li class="list-group-item">
+                            <input type="text" required="required" class="form-control" name="message_lines[]" value="" />
+                        </li>
+                        <li class="list-group-item">
+                            <input type="text" required="required" class="form-control" name="message_lines[]" value="" />
+                        </li>
                     </ol>
                     
                     <div class="btn-group">
@@ -72,7 +75,7 @@
 
                 <div class="form-group">
                     <label>Signature</label>
-                    <textarea name="signature" required="required" class="form-control"><?php
+                    <textarea name="signature" required="required" class="form-control textarea-compact" row="2"><?php
                         echo 'Thank You,'."\n"
                                 ."\n"
                                 ."- ". APP_EICRA_SENDFROM_NAME;
@@ -85,6 +88,7 @@
             
             <div class="btn-group-vertical">
                 <button type="submit" class="btn btn-success btn-block btn-lg message-send-action">Send</button>
+                <button type="button" class="btn btn-primary btn-block btn-lg" data-toggle="modal" data-target=".jira-login-issue-modal">Jira</button>
             </div>
 
         </div>
@@ -92,3 +96,5 @@
     </div>
 
 </form>
+
+<?php include 'views/jira/modal-jira-login-issues.php' ?>
