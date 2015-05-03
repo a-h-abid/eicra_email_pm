@@ -7,6 +7,13 @@ $app->get('/', function() use ($app) {
 
 })->name('home');
 
+// Mail Compose Page
+$app->get('/mail', function() use ($app) {
+    
+    $app->render('mail/mail.php');
+
+})->name('mail');
+
 // POST Submit Email
 $app->post('/send', function() use ($app) {
 
