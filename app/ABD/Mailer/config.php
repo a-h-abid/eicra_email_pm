@@ -2,9 +2,9 @@
 
 return [
 
-    'transporter' => 'ABD\Mailer\Transporters\Gmail',
+    'transporter'       => 'ABD\Mailer\Transporters\Gmail',
 
-    'transporters' => [
+    'transporters'      => [
 
         'ABD\Mailer\Transporters\Gmail'     => ['gmail'],
 
@@ -14,10 +14,10 @@ return [
 
     ],
 
-    'driver'   => 'smtp',
+    'driver'            => 'smtp',
 
-    'encription' => 'tls',
+    'encription'        => 'tls',
 
-    'authentication' => true,
+    'authentication'    => true,
 
 ];

@@ -112,7 +112,7 @@ class PHPmailerSystem implements MailerInterface {
 
     public function body($html)
     {
-        $this->mailer->msgHTML($html);
+        $this->mailer->msgHTML($html, '', true);
     }
     
     public function bodyAlternate($text)
