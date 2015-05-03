@@ -2,18 +2,19 @@
     "name": "abdmaster/eicra_email_pm",
     "type": "mini-app",
     "description": "A stupid mini app to send quick templated email to our Project Manager",
-    "homepage": "http://github.com/codeguy/Slim",
+    "homepage": "http://github.com/abdmaster/eicra_email_pm",
     "license": "MIT",
     "authors": [
         {
-            "name": "Josh Lockhart",
-            "email": "info@joshlockhart.com",
-            "homepage": "http://www.joshlockhart.com/"
+            "name": "Ahmedul Haque Abid",
+            "email": "a_h_abid@hotmail.com.com",
+            "homepage": "http://www.abdmaster.com/"
         }
     ],
     "require": {
         "php": ">=5.4.1",
         "slim/slim" : "~2.6.0",
+        "slim/logger": "0.1.*",
         "phpmailer/phpmailer" : "~5.2.9",
         "cpliakas/jira": "~1.0"
     },

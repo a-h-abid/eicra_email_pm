@@ -6,6 +6,6 @@ return [
 
     'log.enable' => true,
 
-    'log.level' => \Slim\Log::NOTICE,
+    'log.level' => \Slim\Log::ERROR,
 
 ];

@@ -6,4 +6,8 @@ return [
 
     'view' => new \ABD\Extensions\Views\CustomViews(),
 
+    'log.path' => './logs',
+
+    'log.writer' => new \Slim\Logger\DateTimeFileWriter(),
+
 ];
