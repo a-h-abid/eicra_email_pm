@@ -49,6 +49,8 @@ $app->post('/send', function() use ($app) {
 
 // Jira Login & Fetch Issues
 $app->post('/jira/fetch-issues', function() use ($app){
+    
+    $app->etag('jira-issues-'.date('Y-m-d'));
 
     try
     {
@@ -58,6 +60,8 @@ $app->post('/jira/fetch-issues', function() use ($app){
         $jira_repo = new Eicra\Jira\IssuesRepository($jira);
         $issues = $jira_repo->getMyOpenIssues();
 
+        $app->expires('+1 hour');
+
         $json = [
             'status'            => true,
             'issues'            => $issues,
@@ -66,6 +70,8 @@ $app->post('/jira/fetch-issues', function() use ($app){
     }
     catch(Exception $e)
     {
+        $app->expires('+2 second');
+
         $json = [
             'status'    => false,
             'errors'    => $e->getMessage(),
@@ -75,7 +81,6 @@ $app->post('/jira/fetch-issues', function() use ($app){
     echo json_encode($json);
 
 })->name('jira-fetch-issues');
-
 
 // Jira Test
 $app->get('/jira-test', function() use ($app){
@@ -101,4 +106,4 @@ $app->get('/jira-test', function() use ($app){
 
     $app->render('jira/jira-issues.php', $data);
 
-})->name('jira');
+})->name('jira-test');
