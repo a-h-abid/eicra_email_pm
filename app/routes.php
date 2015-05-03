@@ -31,6 +31,17 @@ $app->post('/send', function() use ($app) {
                 ->setDebug( isDebugMode() )
                 ;
 
+        // Check for CC
+        if (isset($_POST['send_cc_email'], $_POST['send_cc_name'])
+            && is_array($_POST['send_cc_email'])
+            && is_array($_POST['send_cc_name']))
+        {
+            for($i = 0,$c = count($_POST['send_cc_email']); $i < $c; $i++)
+            {
+                $mailer->setCc($_POST['send_cc_email'], $_POST['send_cc_name']);
+            }
+        }
+
         // @todo Check for attachments and CC/BCC
 
         $status_msg = ( ! $mailer->send() )
