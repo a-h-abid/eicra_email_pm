@@ -40,9 +40,12 @@ $app = new \Slim\Slim($config);
 // Set Base Path to Views
 $app->view->setTemplatesDirectory('views');
 
-
 // Set Dependency Containers
 require_once('app/containers.php');
+
+// Set Middlewares
+require_once('app/middlewares.php');
+
 
 /**
  * Step 3: Define the Slim application routes
