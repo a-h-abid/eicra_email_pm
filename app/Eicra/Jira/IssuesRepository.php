@@ -13,7 +13,7 @@ class IssuesRepository {
 
     public function getMyOpenIssues($project = 'TWO')
     {
-        $jql = 'project = '.$project.' AND issuetype = Task AND status in ("In Progress", "To Do", "QA") AND resolution = Unresolved AND assignee in (currentUser()) ORDER BY updatedDate DESC';
+        $jql = 'project = '.$project.' AND status in ("In Progress", "To Do", "QA") AND resolution = Unresolved AND assignee in (currentUser()) ORDER BY updatedDate DESC';
 
         return $this->jiraClient->issues()->getFromJqlSearch($jql);
     }
