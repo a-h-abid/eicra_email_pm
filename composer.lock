@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d4fbb6b938cd8e370b7aabaafe10f5f9",
+    "hash": "7a9dfc6e18618d28a087fa9ddf43fb99",
     "packages": [
         {
             "name": "cpliakas/jira",
