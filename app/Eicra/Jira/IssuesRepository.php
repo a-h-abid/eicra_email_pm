@@ -11,9 +11,9 @@ class IssuesRepository {
         $this->jiraClient = $jiraClient;
     }
 
-    public function getMyOpenIssues($project = 'TWO')
+    public function getMyOpenIssues($project = 'TWO, VERTHREE')
     {
-        $jql = 'project = '.$project.' AND status in ("In Progress", "To Do", "QA") AND resolution = Unresolved AND assignee in (currentUser()) ORDER BY updatedDate DESC';
+        $jql = 'project in ('.$project.') AND status in ("In Progress", "To Do", "QA") AND resolution = Unresolved AND assignee in (currentUser()) ORDER BY updatedDate DESC';
 
         return $this->jiraClient->issues()->getFromJqlSearch($jql);
     }
